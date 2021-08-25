@@ -23,11 +23,13 @@
 *{
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-family: 'Josefin Sans', sans-serif;
 }
 main{
   width: 100vw;
+  min-width: 275px;
   height: 100vh;
   background-image:var(--LinearInputBG);
 }
@@ -42,13 +44,13 @@ main{
   width: 100%;
 }
 .main__title{
-  width: var(--ElementsMobileWidth);
+  width: var(--ElementsMobileWidth);/*85%*/
   margin: 50px auto 20px auto;
   text-transform:uppercase;
   font-weight: 600;
   color:var(--DarkGrayishRed);
   text-align: center;
-  font-size: 43px;
+  font-size: 43px; /*43/16=2.68*/
   letter-spacing: 8px;
 }
 .span{
@@ -80,6 +82,18 @@ main{
   background-color: transparent;
   color: var(--DesaturatedRed);
 }
+.form__email::-webkit-input-placeholder{
+  color: var(--PlaceHolderColor);
+}
+.form__email::-moz-placeholder{
+  color: var(--PlaceHolderColor);
+}
+.form__email:-ms-input-placeholder{
+  color: var(--PlaceHolderColor);
+}
+.form__email::-ms-input-placeholder{
+  color: var(--PlaceHolderColor);
+}
 .form__email::placeholder{
   color: var(--PlaceHolderColor);
 }
@@ -93,11 +107,23 @@ main{
   background-image: var(--LinearButtonBG);
 }
 .form__submit:hover{
-  animation: shadowFlicker .5s 3 forwards;
+  -webkit-animation: shadowFlicker .5s 3 forwards;
+          animation: shadowFlicker .5s 3 forwards;
 }
-  @keyframes shadowFlicker {
+  @-webkit-keyframes shadowFlicker {
+    /*0% From
+      100% To*/
     to{
-      box-shadow: 4px 7px 15px var(--Shadowcolor);
+      -webkit-box-shadow: 4px 7px 15px var(--Shadowcolor);
+              box-shadow: 4px 7px 15px var(--Shadowcolor);
+    }
+  }
+  @keyframes shadowFlicker {
+    /*0% From
+      100% To*/
+    to{
+      -webkit-box-shadow: 4px 7px 15px var(--Shadowcolor);
+              box-shadow: 4px 7px 15px var(--Shadowcolor);
     }
   }/*KEYFRAMES*/
 
@@ -107,9 +133,15 @@ main{
     max-width: 1400px;
     height: 100vh;
     margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .main{
     width: 55%;
